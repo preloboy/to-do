@@ -14,7 +14,7 @@ import { FormsModule } from '@angular/forms';
       <textarea #task [(ngModel)]="preview" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Type here ..."></textarea>
     </div>
     <div class="container">
-      <button (click)="addTask(task.value)" class="btn btn-primary mb-3 mx-1">Add</button>
+      <button [disabled]="preview==''?true:false" (click)="addTask(task.value)" class="btn btn-primary mb-3 mx-1">Add</button>
     </div>
     <div class="container">
       <ul *ngFor="let task of tasks" class="list-group d-flex">
@@ -26,7 +26,7 @@ import { FormsModule } from '@angular/forms';
   `,
 })
 export class App {
-  preview: string;
+  preview: '';
   name = 'To-Do';
   color = 'ff';
   display = false;
